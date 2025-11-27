@@ -180,28 +180,30 @@ public class ParticalScrolPanel extends JPanel implements ListSelectionListener 
 			int speed;
 			Color color = new Color((int) (Math.random() * 256), (int) (Math.random() * 256),
 					(int) (Math.random() * 256));
-			y = 0;
-			x = 0;
+			y = -30;
+			x = -15;
 			angle = (int) (Math.random() * 361);
 			speed = (int) (Math.random() * 201);
 			if (name.equals("")) {
 				name = "P" + listModel.size();
 			}
-			if (count == 0) {
-				speed = 70;
-				angle = 270;
-				y = 178;
-				x = 0;
-				color =  new Color(50, 150, 250);
-			} else if (count == 1) {
-				speed = 170;
-				angle = 65;
-				y = -130;
-				x = -100;
-				color =  new Color(250, 150, 50);
-			} else {
-				speed = 180;
-			}
+			
+			
+			
+			
+//			if (count == 0) {
+//				speed = 0;
+//				angle = 0;
+//				y = 20;
+//				x = -20;
+//				color =  new Color(50, 150, 250);
+//			}else {
+//				speed = 180;
+//				x = -80;
+//				y = 20;
+//				angle = 0;
+//				color =  new Color(250, 150, 50);
+//			}
 			
 			particalMap.put(name, new Partical(name, 10.5, 15, speed, angle, color, x, y));
 			particalMap.put(name, new Partical(name, 10.5, 15, speed, angle, color, x, y+30));
