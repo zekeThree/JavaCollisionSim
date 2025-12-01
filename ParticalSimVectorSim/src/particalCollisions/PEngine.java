@@ -53,6 +53,7 @@ public class PEngine implements Runnable {
 
 	}
 
+	//Left off here todo- implement double buffering
 	public void run() {
 		while (true) {
 			try {

@@ -91,7 +91,7 @@ public class PRenderer {
 				int distance = (int) Math.sqrt(Math.pow((y1 - y2), 2) + Math.pow((x1 - x2), 2));
 				if (distance <= (radius1 + radius2)) {
 
-					resolveCollision(p, listOfParticalsToCheek.get(i), 1);
+					resolveCollision(p, listOfParticalsToCheek.get(i), .5);
 
 					System.out.println("Collition!!");
 
@@ -117,14 +117,26 @@ public class PRenderer {
 		if (YcompV > 0) {
 			if (XcompV > 0) {
 					 angleV = 90-Math.toDegrees(Math.asin(XcompV/forceV));
+					 if(forceV==0) {
+						 angleV = 90-Math.toDegrees(Math.asin(0));
+					 }
 			} else {
 				 angleV = 180-Math.toDegrees(Math.asin(YcompV/forceV));
+				 if(forceV==0) {
+					 angleV  = 180-Math.toDegrees(Math.asin(0));
+				 }
 			}
 		} else {
 			if (XcompV > 0) {
 				 angleV = 360-Math.toDegrees(Math.asin(Math.abs(YcompV)/forceV));
+				 if(forceV==0) {
+					 angleV = 360-Math.toDegrees(Math.asin(0));
+				 }
 			} else {
 				 angleV = 270- Math.toDegrees(Math.asin(Math.abs(XcompV)/forceV));
+				 if(forceV==0) {
+					 angleV = 270- Math.toDegrees(Math.asin(0));
+				 }
 			}
 		}
 		VisableObjectVector v = new VisableObjectVector(forceV, angleV);
@@ -153,8 +165,8 @@ public class PRenderer {
 		double ncompP1 = Math.cos(Math.toRadians(p1.getVOV().getAngle() - CollisionAngle)) * p1.getVOV().getForce();
 		double ncompP2 = Math.cos(Math.toRadians(p2.getVOV().getAngle() - CollisionAngle)) * p2.getVOV().getForce();
 		System.out.println(CollisionAngle+" Deg");
-		VisableObjectVector pcompP1V = new VisableObjectVector(pcompP1, CollisionAngle + 90);
-		VisableObjectVector pcompP2V = new VisableObjectVector(pcompP2, CollisionAngle + 90);
+		VisableObjectVector pcompP1V = new VisableObjectVector(pcompP1*e, CollisionAngle + 90);
+		VisableObjectVector pcompP2V = new VisableObjectVector(pcompP2*e, CollisionAngle + 90);
 		VisableObjectVector ncompP1V = new VisableObjectVector(ncompP1, CollisionAngle );
 		VisableObjectVector ncompP2V = new VisableObjectVector(ncompP2, CollisionAngle );
 
