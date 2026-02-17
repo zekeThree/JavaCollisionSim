@@ -78,8 +78,10 @@ public class Partical {
 	 * @param movement
 	 */
 	public void move(double movement) {
+		
 		xHolder = xHolder + (movement * vov.getCompForceX().getForce());
-		yHolder = yHolder + (movement * vov.getCompForceY().getForce());
+		yHolder = yHolder + (movement * vov.getCompForceY().getForce() ) ;
+		
 
 		this.x = (int) (xHolder + .5);
 		this.y = (int) (yHolder + .5);
