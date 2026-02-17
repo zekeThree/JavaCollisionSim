@@ -29,6 +29,8 @@ public class PRenderer {
 		g.setColor(Color.gray);
 
 		for (Partical p : ParticalArray) {
+			VisableObjectVector gravity = new VisableObjectVector(1,90);
+			p.setVOV(addVectors(p.getVOV(),gravity));
 			if (isRendering) {
 				p.move(PEngine.renderSpeed / 1000.0);
 			}
@@ -113,7 +115,6 @@ public class PRenderer {
 		double XcompV = XcompV1 + XcompV2;
 		double forceV = Math.pow((Math.pow(XcompV, 2) + Math.pow(YcompV, 2)), .5);
 		double angleV;
-		System.out.println(" "+YcompV+" \n "+XcompV);
 		if (YcompV > 0) {
 			if (XcompV > 0) {
 					 angleV = 90-Math.toDegrees(Math.asin(XcompV/forceV));
